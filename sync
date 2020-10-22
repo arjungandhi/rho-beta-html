@@ -1,0 +1,5 @@
+#!/bin/bash
+aws s3 rm --recursive s3://rho-beta-site-demo.arjungandhi.com
+aws s3 sync . s3://rho-beta-site-demo.arjungandhi.com --exclude '.git/*'
+
+aws cloudfront create-invalidation --distribution-id=E4WAPY7UUXOBL --paths / 
